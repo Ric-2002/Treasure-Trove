@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cangbaoge-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-04",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    // CORS checks origins only; project pages use https://ljt20002.github.io.
+    "ALLOWED_ORIGINS": "http://localhost:4173,http://127.0.0.1:4173,https://ljt20002.github.io"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "bf69a17eac6f4f2284ba78970f29437f",
+      // Intentionally points preview dev at the same real KV namespace.
+      // This makes npm run dev:api read/write the actual database.
+      "preview_id": "bf69a17eac6f4f2284ba78970f29437f"
+    }
+  ]
+}
